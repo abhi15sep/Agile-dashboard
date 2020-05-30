@@ -1,0 +1,199 @@
+/**
+ * VARIABLES
+ */
+$ebony        : #2d3035 !default;
+$black-russian: #22252a !default;
+$orange       : #FE5029 !default;
+$white        : #fff !default;
+$sw-lite      : #F4EEEB !default;
+
+$primary-color: $ebony;
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+// font weights
+$font-lite : 300;
+$font-med  : 400;
+$font-heavy: 500;
+$font-hulk : 700;
+
+// font sizes
+$size-big   : 20px;
+$size-normal: 16px;
+$size-small : 14px;
+
+/** 
+  * MIXINS 
+  */
+// Small devices
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+/**
+ * Global styles
+ */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing : antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color       : $ebony !important;
+  color                  : $white;
+}
+
+/**
+ * Bootstrap overrides
+ */
+.navbar-text {
+  font-size: $size-small;
+
+  @include md {
+    font-size: $size-normal;
+  }
+}
+
+.btn {
+  outline: none;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+.btn-primary {
+  background-color: $orange !important;
+  color           : $sw-lite !important;
+  border-color    : $orange !important;
+  outline         : none;
+}
+
+.btn-secondary {
+  background-color: transparent !important;
+  color           : $sw-lite !important;
+  border-color    : $orange !important;
+  outline         : none;
+
+  &:hover {
+    background-color: $orange !important;
+    color           : $sw-lite !important;
+    border-color    : $orange !important;
+  }
+}
+
+/**
+ * component styles 
+ */
+
+.scroll-to-top {
+  position : fixed;
+  bottom   : 1rem;
+  right    : 0.8rem;
+  animation: fadeIn 700ms ease-in-out 1s both;
+  cursor   : pointer;
+
+  img {
+    height          : 30px;
+    width           : 30px;
+    background-color: $orange;
+    padding         : 6px;
+    border-radius   : 8px;
+  }
+}
+
+.App {
+  color: $white;
+
+  .board-section {
+    padding: 0;
+
+    .board-title {
+      font-size     : $size-big;
+      text-align    : center;
+      text-transform: capitalize;
+    }
+
+    .board-card {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+      height    : 130px;
+
+      @include md {
+        height: 150px;
+      }
+
+      &:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      }
+
+      .btn-link {
+        color    : $white;
+        font-size: 48px;
+        border: none;
+
+        &:hover {
+          text-decoration: none !important;
+        }
+      }
+
+      i.action-items {
+        position : absolute;
+        top      : 15px;
+        right    : 15px;
+        z-index  : 1;
+        font-size: $size-normal;
+        cursor   : pointer;
+      }
+
+      .actionItem {
+        overflow-x: auto;
+      }
+    }
+  }
+
+  .dashed-border {
+    border: 1px dashed $white;
+  }
+
+  .center-h-v {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+  }
+}
