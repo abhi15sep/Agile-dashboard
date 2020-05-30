@@ -2,8 +2,6 @@
 
 A better designed agile board with dark theme and vibrant colors!
 
-![agileboard](./public/agile-board-demo.PNG)
-
 ### Features
 
 - The board consists of 4 sections mentioned below:
